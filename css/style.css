@@ -3,8 +3,49 @@
     padding: 0px;
 }
 
+body {
+    background-color: black;
+    background: linear-gradient(to right,  black, #603a51);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
 h1 {
-    text-align: center;
-    background-color: bisque;
     font-family: 'Asap', sans-serif;
+    color: whitesmoke;
+    font-size: 60px;
+}
+
+section {
+    height: 75vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.proyecto {
+    color: whitesmoke;
+    font-family: 'Asap', sans-serif;
+    text-align: center;
+    height: 415px;
+    background-color: black;
+    background: linear-gradient(to right, #587ede, black);
+    box-shadow: 0 5px 15px rgba(0.35, 0.35, 0.35, 0.35);
+    border-radius: 25px;
+}
+
+h2 {
+    margin: 20px;
+}
+
+p {
+    width: 700px;
+    margin: 25px;
 }

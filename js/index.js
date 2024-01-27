@@ -1,6 +1,6 @@
 /* 
 
-Proyecto Academico (Primera Pre-Entrega)
+Proyecto Academico Universitario (Primera Pre-Entrega)
 
 En esta primera pre-entrega el proyecto consiste en un programa que permita que el usuario pueda ingresar una serie de alumnos y sus respectivas notas para luego calcular su nota final de cursada.
 Ademas, el programa permitirá saber:
