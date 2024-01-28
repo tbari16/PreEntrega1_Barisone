@@ -22,14 +22,14 @@ function promedio(nota1, nota2){
 }
 
 for (let i = 0; i < alumnos; i++){
-    nombre = prompt("Ingrese el nombre del alumno");
+    nombre = prompt("Ingrese el nombre completo del alumno");
     nota1 = parseFloat(prompt(`Ingrese la nota del primer examen de ${nombre}`));
     nota2 = parseFloat(prompt(`Ingrese la nota del segundo examen de ${nombre}`));
     if ((nota1 >= 0 && nota1 < 4) && (nota2 >= 0 && nota2 < 4)){
         console.log(`El alumno ${nombre} debe recursar la materia`)
-    } else if ((nota1 >= 4 && nota1 < 7) || (nota2 >= 4 && nota2 < 7)){
+    } else if (((nota1 >= 4 && nota1 < 7) && (nota2 >= 4)) || ((nota2 >= 4 && nota2 < 7) && (nota1 >= 4))){
         console.log(`El alumno ${nombre} aprobó la cursada pero tiene que rendir un examen final`)
-    } else if ((nota1 >= 0 && nota1 < 4) || (nota2 >= 0 && nota2 < 4)){
+    } else if (((nota1 >= 0 && nota1 < 4) && (nota2 >= 4)) || ((nota2 >= 0 && nota2 < 4) && (nota1 >= 4))){
         console.log(`El alumno ${nombre} debe rendir recuperatorio`)
     } else {
         console.log(`El alumno ${nombre} promocionó la materia`)
