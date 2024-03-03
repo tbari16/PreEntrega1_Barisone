@@ -3,49 +3,95 @@
     padding: 0px;
 }
 
-body {
-    background-color: black;
-    background: linear-gradient(to right,  black, #603a51);
-}
+/* Header */
 
 header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 150px;
+    background-color: #4f000b;
+    padding: 50px;
+}
+
+img {
+    height: 130px;
+    width: 130px;
+}
+
+body {
+    background-color: #720026;
 }
 
 h1 {
     font-family: 'Asap', sans-serif;
-    color: whitesmoke;
+    color: white;
+    font-size: 40px;
+    width: 50px;
+}
+
+/* Main */
+
+p,
+h1,
+h2,
+button,
+table {
+    font-family: 'Asap', sans-serif;
+}
+
+.contenedorSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a4133c;
+    color: white;
+    height: 100%;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.contenedorSection h2 {
+    margin: 20px;
     font-size: 60px;
 }
 
-section {
-    height: 75vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-
-}
-
-.proyecto {
-    color: whitesmoke;
-    font-family: 'Asap', sans-serif;
+table {
+    width: 1300px;
     text-align: center;
-    height: 415px;
-    background-color: black;
-    background: linear-gradient(to right, #587ede, black);
-    box-shadow: 0 5px 15px rgba(0.35, 0.35, 0.35, 0.35);
-    border-radius: 25px;
 }
 
-h2 {
-    margin: 20px;
+td {
+    padding: 25px;
 }
 
-p {
-    width: 700px;
-    margin: 25px;
+th {
+    font-size: x-large;
+}
+
+.btn {
+    margin: 5px;
+    margin-top: 70px;
+    background-color: #fdb833;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 5px 5px 5px rgb(90, 90, 90);
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    background-color: #4f000b;
+    padding: 50px;
 }

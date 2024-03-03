@@ -16,43 +16,40 @@
 </head>
 
 <body>
+    <!-- Header -->
     <header>
         <h1><strong>Proyecto Academico Universitario</strong></h1>
+        <img src="./img/MIT.png" alt="Imagen de Universidad">
     </header>
-    <nav>
 
-    </nav>
+    <!-- Main -->
     <main>
+        
         <section>
-            <div class="proyecto">
-                <h2>Proyecto Tercera Pre-Entrega</h2>
-                <p>Buenas! Esta pagina esta en proceso de construccion dado a que esta es la tercera pre-entrega del
-                    proyecto final. Sin embargo, a continuacion me gustaria comentar de lo que se basará el proyecto</p>
-                <p>La idea de este proyecto es crear una página universitaria para ayudar a los profesores a colocar las
-                    notas de manera virtual, de este modo los alumnos podrian recibir una notificación cuando tengan
-                    disponible
-                    sus respectivas notas y una vez que todas las notas esten disponibles o haya terminado la cursada,
-                    el programa
-                    permitá calcular si los alumnos pudieron promocionar (siempre y cuando sea posible promocionar), si
-                    aprobaron
-                    pero deben rendir un examen final, si deben rendir recuperatorio o si deben recursar la materia.
-                </p>
-                <p>
-                    Ademas, la idea es que haya varias materias, cada materia debe tener espacio para poner la nota del
-                    primer examen,
-                    la nota del segundo examen, la nota de recuperatorio, del examen final, el promedio y el informe de
-                    la cursada (Promocion, recuperatorio o recursar).
-                </p>
-                <p>
-                    Por último, me gustaria aclarar que esta pagina fue creada solamente para la tercera pre-entrega. 
-                    Esta <strong>NO</strong> será la página del proyecto final. 
-                </p>
-            </div>
+            <section>
+                <div class="contenedorSection">
+                    <div>
+                        <h2>JavaScript</h2>
+                    </div>
+                    <div>
+                        <table id="contenedorDiv">
+                            <tr>
+                                <th>Alumno/a</th>
+                                <th>Primer Parcial</th>
+                                <th>Segundo Parcial</th>
+                                <th>Promedio</th>
+                                <th>Informe Cursada</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div> 
+                        <button class="btn" id="btn">Añadir alumno</button>
+                    </div>
+                </div>
+            </section>
         </section>
-    </main>
-    <footer>
 
-    </footer>
+    </main>
 
     <!-- JS -->
     <script src="./js/index.js"></script>

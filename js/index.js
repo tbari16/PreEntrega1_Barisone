@@ -11,22 +11,15 @@ Ademas, el programa permitirá saber:
 
 */
 
-let alumnos = parseInt(prompt("Ingresar la cantidad de alumnos que desea registrar"));
-let listaAlumnos = [];
+const contenedor = document.getElementById('contenedorDiv')
+const btn = document.getElementById('btn')
+let listaAlumnos = JSON.parse(localStorage.getItem('listaAlumnos')) || [];
 
-let nombre;
-let nota1;
-let nota2;
-
-function promedio(nota1, nota2){
-    let prom = (nota1 + nota2) / 2;
-    console.log(`El promedio es ${prom}`)
-}
+/* Constructor */
 
 class Alumno {
-    constructor(nombre, apellido, n1, n2) {
+    constructor(nombre, n1, n2) {
         this.nombre = nombre;
-        this.apellido = apellido;
         this.n1 = n1;
         this.n2 = n2;
     }
@@ -48,51 +41,61 @@ class Alumno {
     }
 }
 
-for (let i = 0; i < alumnos; i++){
-    nombre = prompt("Ingresa el nombre del alumno/a")
-    apellido = prompt("Ingresa el apellido del alumno/a")
-    nota1 = parseFloat(prompt("Ingrese la nota del primer parcial"))
-    nota2 = parseFloat(prompt("Ingrese la nota del segundo parcial"))
+/* 
+Evento:
+Este evento permite que al hacer click en el boton 'Añadir alumno' el usuario pueda ingresar los datos necesarios
+y que, junto a las funciones determinadas, se cree en el html los elementos necesarios para el agregado del alumno.
+Ademas permite almacenar los datos de manera local gracias al uso del JSON y el localStorage.
+7*/
 
-    let alum = new Alumno(nombre,apellido,nota1,nota2)
+btn.addEventListener('click', () => {
+    const nombreAlumno = prompt("Ingrese el nombre de un alumno")
+    const nota1 = parseFloat(prompt(`Ingrese la nota del primer parcial del alumno ${nombreAlumno}`))
+    const nota2 = parseFloat(prompt(`Ingrese la nota del segundo parcial del alumno ${nombreAlumno}`))
+
+    function promedio(nota1, nota2) {
+        let prom = (nota1 + nota2) / 2;
+        return prom;
+    }
+
+    const alumnoContenedor = document.createElement('tr')
+
+    const nombreNuevoAlumno = document.createElement('td')
+    const notaAlumno1 = document.createElement('td')
+    const notaAlumno2 = document.createElement('td')
+    const promedioAlumno = document.createElement('td')
+
+
+    nombreNuevoAlumno.textContent = `${nombreAlumno}`
+    notaAlumno1.textContent = `${nota1}`
+    notaAlumno2.textContent = `${nota2}`
+    promedioAlumno.textContent = `${promedio(nota1, nota2)}`
+
+    alumnoContenedor.appendChild(nombreNuevoAlumno)
+    alumnoContenedor.appendChild(notaAlumno1)
+    alumnoContenedor.appendChild(notaAlumno2)
+    alumnoContenedor.appendChild(promedioAlumno)
+
+    let alum = new Alumno(nombreAlumno, nota1, nota2);
     listaAlumnos.push(alum);
 
-    if ((nota1 >= 0 && nota1 < 4) && (nota2 >= 0 && nota2 < 4)){
-        console.log(`El alumno ${nombre} debe recursar la materia`)
-    } else if (((nota1 >= 4 && nota1 < 7) && (nota2 >= 4)) || ((nota2 >= 4 && nota2 < 7) && (nota1 >= 4))){
-        console.log(`El alumno ${nombre} aprobó la cursada pero tiene que rendir un examen final`)
-    } else if (((nota1 >= 0 && nota1 < 4) && (nota2 >= 4)) || ((nota2 >= 0 && nota2 < 4) && (nota1 >= 4))){
-        console.log(`El alumno ${nombre} debe rendir recuperatorio`)
+    const informeCursada = document.createElement('td')
+
+    if (alum.promocionados()) {
+        informeCursada.textContent = `Promocion`
+    } else if (alum.aprobados()) {
+        informeCursada.textContent = `Aprobado a final`
+    } else if (alum.desaprobados()) {
+        informeCursada.textContent = `Recuperatorio`
+    } else if (alum.recursados()) {
+        informeCursada.textContent = `Recursa`
     } else {
-        console.log(`El alumno ${nombre} promocionó la materia`)
+        alert("Error")
     }
-    promedio(nota1, nota2);
-}
 
-function alumnosPromocionados() {
-    return listaAlumnos.filter(alumno => alumno.promocionados());
-}
+    alumnoContenedor.appendChild(informeCursada)
 
-function alumnosAprobados(){
-    return listaAlumnos.filter(alumno => alumno.aprobados());
-}
+    contenedor.appendChild(alumnoContenedor)
 
-function alumnosDesaprobados() {
-    return listaAlumnos.filter(alumno => alumno.desaprobados())
-}
-
-function alumnosRecursados() {
-    return listaAlumnos.filter(alumno => alumno.recursados())
-}
-
-console.log("Los alumnos que promocionaron son:")
-alumnosPromocionados().forEach(alumno => console.log(alumno.nombre + " " + alumno.apellido))
-
-console.log("Los alumnos que aprobaron son:")
-alumnosAprobados().forEach(alumno => console.log(alumno.nombre + " " + alumno.apellido))
-
-console.log("Los alumnos que deben rendir un recuperatorio son:")
-alumnosDesaprobados().forEach(alumno => console.log(alumno.nombre + " " + alumno.apellido))
-
-console.log("Los alumnos que recursaron son:")
-alumnosRecursados().forEach(alumno => console.log(alumno.nombre + " " + alumno.apellido))
+    localStorage.setItem('listaAlumnos', JSON.stringify(listaAlumnos));
+})
